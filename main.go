@@ -37,5 +37,5 @@ func printMessage(msg, cid, level string) {
   if err != nil {
     panic(err)
   }
-  fmt.Println(json)
+  fmt.Printf("%s\n", json)
 }
