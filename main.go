@@ -25,10 +25,14 @@ func LogError(msg, cid string) {
   printMessage(msg, cid, "ERROR")
 }
 
+func DatetimeFormat() string {
+  //time.Now() returns the current local time; using the current time in UTC.
+  return time.Now().UTC().Format(time.RFC3339Nano)
+}
+
 func printMessage(msg, cid, level string) {
   le := logEntry{
-    //time.Now() returns the current local time; using the current time in UTC.
-    DateTime: time.Now().UTC().Format(time.RFC3339Nano),
+    DateTime: DatetimeFormat(),
     CorrelationId: cid,
     Level: level,
     Message: msg,
